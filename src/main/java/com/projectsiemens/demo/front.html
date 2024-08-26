@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Reservation System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="title">Hotel Reservation System</h1>
+
+  <!-- User input: Specify radius in kilometers -->
+  <div class="input-container">
+    <label for="radius">Enter radius (km):</label>
+    <input type="number" id="radius" class="input-field" placeholder="Enter radius">
+    <button class="btn" onclick="getNearbyHotels()">Find Nearby Hotels</button>
+  </div>
+
+  <!-- Display nearby hotels -->
+  <div id="hotelList" class="hotel-list"></div>
+
+  <!-- Reservation form -->
+  <div id="reservationForm" class="reservation-form" style="display: none;">
+    <h2>Make a Reservation</h2>
+    <form>
+      <label for="checkInDate">Check-In Date:</label>
+      <input type="date" id="checkInDate" class="input-field" required><br>
+      <label for="checkOutDate">Check-Out Date:</label>
+      <input type="date" id="checkOutDate" class="input-field" required><br>
+      <label for="userId">User ID:</label>
+      <input type="text" id="userId" class="input-field" required><br>
+      <div id="selectedRooms">
+        <h3>Selected Rooms:</h3>
+        <ul id="roomList"></ul>
+      </div>
+      <button type="button" class="btn" onclick="makeReservation()">Submit Reservation</button>
+    </form>
+  </div>
+
+  <!-- User input: Enter userId to view reservations -->
+  <div id="viewReservations" class="view-reservations">
+    <h2>View Reservations</h2>
+    <div class="input-container">
+      <label for="viewUserId">Enter User ID:</label>
+      <input type="text" id="viewUserId" class="input-field" placeholder="Enter User ID">
+      <button class="btn" onclick="getUserReservations()">View Reservations</button>
+    </div>
+    <div id="reservationList" class="reservation-list"></div>
+  </div>
+
+  <!-- Feedback form -->
+  <div id="feedbackForm" class="feedback-form" style="display: none;">
+    <h2>Send Feedback</h2>
+    <form>
+      <label for="hotelFeedback">Feedback:</label>
+      <textarea id="hotelFeedback" class="input-field" required></textarea><br>
+      <input type="hidden" id="feedbackHotelId">
+      <button type="button" class="btn" onclick="submitFeedback()">Submit Feedback</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
